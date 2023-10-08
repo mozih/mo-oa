@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{info}}
+    </div>
+    <script src="vue.min.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+               info:'hello atguigu' 
+            },
+            created() { //渲染前
+                debugger
+                console.log('created....')
+            },
+            mounted() { //渲染后
+                debugger
+                console.log('mounted....')
+            }
+        })
+    </script>
+</body>
+</html>

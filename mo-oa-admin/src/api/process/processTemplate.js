@@ -37,5 +37,12 @@ export default {
       url: `${api_name}/remove/${id}`,
       method: 'delete'
     })
+  },
+  //发布，部署流程定义
+  publish(id) {
+    return request({
+      url: `${api_name}/publish/${id}`,
+      method: 'get'
+    })
   }
 }

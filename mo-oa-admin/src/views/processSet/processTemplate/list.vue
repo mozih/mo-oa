@@ -29,6 +29,8 @@
                         :disabled="$hasBP('bnt.processTemplate.templateSet') === false">修改审批设置</el-button>
                     <el-button type="text" size="mini" @click="removeDataById(scope.row.id)"
                         :disabled="$hasBP('bnt.processTemplate.remove') === false">删除</el-button>
+                    <el-button v-if="scope.row.status == 0" type="text" size="mini" @click="publish(scope.row.id)"
+                        :disabled="$hasBP('bnt.processTemplate.publish') === false">发布</el-button>
                 </template>
             </el-table-column>
         </el-table>
@@ -83,6 +85,13 @@ export default {
     mounted() {
     },
     methods: {
+        //发布
+        publish(id) {
+            api.publish(id).then(response => {
+                this.$message.success('发布成功')
+                this.fetchData(this.page)
+            })
+        },
         show(row) {
             this.rule = JSON.parse(row.formProps)
             this.option = JSON.parse(row.formOptions)
